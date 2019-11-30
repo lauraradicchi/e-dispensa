@@ -8,18 +8,17 @@ import {FormControl, Validators,FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./receitas.component.scss']
 })
 export class ReceitasComponent implements OnInit {
-  options: FormGroup;
-  alimento = new FormControl('', [Validators.required, Validators.email]);
+  
+  tipoReceita: string;
+  receitas: string[] = ['Doce' , 'Salgada'];
+  restricaoAlimentar: string;
+  restricaos: string[] = ['Sim', 'Não']
   constructor() {
   }
   
   ngOnInit() {
 
   }
-  getErrorMessage() {
-    return this.alimento.hasError('required') ? 'Você deve inserir um alimento' :
   
-            '';
-  }
 
 }

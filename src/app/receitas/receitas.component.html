@@ -1,16 +1,54 @@
-<form>
-  <mat-form-field>
-    <input matInput placeholder="Digite o nome de um alimento">
-  
-    <mat-select placeholder="Tipos de receitas">
-      <mat-option value="salgadas">Salgadas</mat-option>
-      <mat-option value="doces">Doces</mat-option>
-      <mat-option value="vegetarianas">Vegetarianas</mat-option>
-      <mat-option value="veganas">Veganas</mat-option>
-      <mat-option value="lac">Sem Lactose</mat-option>
-      <mat-option value="glut">Sem Gluten</mat-option>
-    </mat-select>
+<div>
+<div class="radio">
+    <label id="example-radio-group-label">Escolha o Tipo de  Receita : </label>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="tipoRceita">
+      <mat-radio-button class="example-radio-button" *ngFor="let receita of receitas" [value]="receita">
+        {{receita}}
+      </mat-radio-button>
+    </mat-radio-group>
+</div>
+<div class="radio">
+
+  <label id="example-radio-group-label">Restrições Alimentares? </label>
+  <mat-radio-group
+    aria-labelledby="example-radio-group-label"
+    class="example-radio-group"
+    [(ngModel)]="restricaoAlimentar">
+    <mat-radio-button class="example-radio-button" *ngFor="let restricao of restricaos" [value]="restricao">
+      {{restricao}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+<div class="radio" *ngIf= "restricao == sim">
+  <ng-container>
+      <mat-form-field class="receitas__input" >
+          <mat-select placeholder= "Selecione"> 
+            <mat-option value="vegetarianas">Vegetarianas</mat-option>
+            <mat-option value="veganas">Veganas</mat-option>
+            <mat-option value="lac">Sem Lactose</mat-option>
+            <mat-option value="glut">Sem Gluten</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </ng-container>
+
+</div>
+<div class="radio">
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Informe o Alimento" value="">
   </mat-form-field>
 </form>
+</div>
+<div class="example-button-row">
+    <button mat-raised-button color="primary">Enviar</button>
+  </div>
+</div>  
+
+
+
+
 
 

@@ -26,3 +26,13 @@ $my-custom-theme: mat-dark-theme($my-custom-primary, $my-custom-accent, $my-cust
 
   @include angular-material-theme($my-alternate-theme);
 }
+
+.my-header-theme{
+  $my-header-primary: mat-pallete($mat-green);
+  $my-header-accent: mat-pallete($mat-teal, 600);
+  $my-header-warn: mat-pallete($mat-cyan);
+  
+  $my-header-theme: mat-header-theme($my-header-primary, $my-header-accent, $my-header-warn);
+  
+  @include angular-material-theme($my-header-theme);
+}

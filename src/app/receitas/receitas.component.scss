@@ -1,7 +1,36 @@
-
-mat-select{
-    margin-top: 30px !important; 
+.radio {
+    padding-top: 7px;
+    padding-bottom: 8px;
+    padding-left: 10px;
 }
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+
+}
+  
+.example-radio-button {
+    margin: 5px;
+}
+
 input{
-   position: absolute; 
+    width:150px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.example-full-width {
+    width: 100%;
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  width: 100px;
+  margin-left: 150px;
+  background-color: #057614;
 }
