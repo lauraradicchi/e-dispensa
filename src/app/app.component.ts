@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'e-dispensa';
+  title = 'e-despensa';
   navLinks: any[];
   activeLinkIndex = -1; 
   constructor(private router: Router) {
