@@ -13,6 +13,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { CloudantService } from './global/CloudantService';
+import { DataTableModule } from 'angular2-datatable';
+import{ MatTableModule } from '@angular/material';
   
 
 
@@ -37,7 +40,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    DataTableModule,
+    MatTableModule
     
 
   ],
