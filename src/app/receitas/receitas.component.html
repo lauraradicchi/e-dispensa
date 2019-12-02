@@ -4,7 +4,8 @@
     <mat-radio-group
       aria-labelledby="example-radio-group-label"
       class="example-radio-group"
-      [(ngModel)]="tipoRceita">
+      [(ngModel)]="tipoRceita"
+      (ngModelChange)= "tipoReceitas=($event)">
       <mat-radio-button class="example-radio-button" *ngFor="let receita of receitas" [value]="receita">
         {{receita}}
       </mat-radio-button>
@@ -17,13 +18,13 @@
     aria-labelledby="example-radio-group-label"
     class="example-radio-group"
     [(ngModel)]="restricaoAlimentar"
-    (change)="tipoRceitas($event)">
+    (ngModelChange)="restricoesAlimentares($event)">
     <mat-radio-button class="example-radio-button" *ngFor="let restricao of restricaos" [value]="restricao" >
       {{restricao}}
     </mat-radio-button>
   </mat-radio-group>
 </div>
-<div class="radio" *ngIf= "restricao == sim">
+<div class="radio"  *ngIf="isSelected('Sim')">
   <ng-container>
       <mat-form-field class="receitas__input" >
           <mat-select placeholder= "Selecione"> 
@@ -39,30 +40,16 @@
 <div class="radio">
 <form class="example-form">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Informe o Alimento" value="">
+    <input matInput placeholder="Informe o Alimento" #alimento>
   </mat-form-field>
 </form>
 </div>
 <div class="example-button-row">
-    <button mat-raised-button color="primary">Enviar</button>
+    <button mat-raised-button  (click)="envioReceitas(tipoReceitas,restricaoAlimentar,alimento.value)">Enviar</button>
   </div>
 </div>  
 
-<br>
-<table  mat-table
-      [dataSource]="dataSource" multiTemplateDataRows
-      class ="table table-bordered table responsive-md text-center table-striped">
-  <ng-container matColumnDef= "{{column.key}}" *ngFor= "let column of columns; let i = index">
-    <th *matHeaderCellDef [style.width]= "column.width? column.width :false ">{{column.title}}</th>
-    <td *matCellDef= "let element">
-      <span *ngIf="column.value(element)"> {{column.value}}</span>
-    </td>
-    <tr mat-header-row *matHeaderRowDef = "displayedColumns" class="header"></tr>
-    
-  </ng-container>    
 
-
-</table>
 
 
 

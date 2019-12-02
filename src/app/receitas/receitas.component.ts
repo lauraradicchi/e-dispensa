@@ -24,30 +24,7 @@ export class ReceitasComponent implements OnInit {
   @ViewChild(MatPaginator,  {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort,  {static: false}) sort: MatSort;
   
-  columns = [
-    {
-      key: "receita",
-      title: "Receita",
-      value: (element) =>{
-        return element.receita;
-      }
-    },
-    {
-      key: "ingredientes",
-      title: "Ingredientes",
-      value: (element) => {
-        return element.ingredientes;
-      }
-    },
-    {
-      key: "modoPreparo",
-      title: "Modo Preparo",
-      value: (element) =>{
-        return element.modoPreparo
-      }
-    }
-  ]
-  displayedColumns = this.columns.map(c => c.key);
+ 
   constructor(private dbCloudant:CloudantService ,
     private zone: NgZone) {
   }
@@ -58,6 +35,7 @@ export class ReceitasComponent implements OnInit {
       this.dbCloudant.getInternal().then((internals) => {
         this.zone.run(() => {
           this.internal = internals;
+
         });
         console.log(this.internal);
       }); 
@@ -73,10 +51,27 @@ export class ReceitasComponent implements OnInit {
       })
       .catch(console.error.bind(console));
   }
+  restricoesAlimentares(evt) {
+     this.restricaoAlimentar = evt;
+    console.log(this.restricaoAlimentar);
+  }
   tipoReceitas(evt){
-     this.tipoReceita = evt;
+    this.tipoReceita = evt;
     console.log(this.tipoReceita);
   }
+  envioReceitas(tipoReceita:string, restricaoAlimentar:string, alimento:string) {
+    console.log(tipoReceita);
+    console.log(restricaoAlimentar);
+    console.log(alimento)
+    console.log("foi!");
+  };
+
+  isSelected(name: string): boolean {  
+    if (!this.restricaoAlimentar) {   
+      return false;  
+    }  
+     return (this.restricaoAlimentar === name);  
+  }   
 
 
 }
