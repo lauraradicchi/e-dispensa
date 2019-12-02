@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReceitasComponent } from './receitas/receitas.component';
@@ -16,6 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { CloudantService } from './global/CloudantService';
 import { DataTableModule } from 'angular2-datatable';
 import{ MatTableModule } from '@angular/material';
+import { CloudantModule } from './global/CloudantModule';
   
 
 
@@ -46,7 +47,14 @@ import{ MatTableModule } from '@angular/material';
     
 
   ],
-  providers: [],
+  providers: [
+    CloudantModule,
+    { provide: APP_INITIALIZER, useFactory: cloudantModuleLoader, deps: [CloudantModule], multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function cloudantModuleLoader(provider: CloudantModule) {
+  return () => provider.init();
+}

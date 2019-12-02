@@ -3,6 +3,8 @@ import{RouterModule,Router} from '@angular/router';
 import {FormControl, Validators,FormBuilder, FormGroup} from '@angular/forms';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { CloudantService } from '../global/CloudantService';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { CloudantModule } from '../global/CloudantModule';
 
 @Component({
   selector: 'app-receitas',
@@ -26,7 +28,8 @@ export class ReceitasComponent implements OnInit {
   
  
   constructor(private dbCloudant:CloudantService ,
-    private zone: NgZone) {
+    private zone: NgZone,
+    private cloudant:CloudantModule) {
   }
   
   ngOnInit() {
@@ -59,12 +62,17 @@ export class ReceitasComponent implements OnInit {
     this.tipoReceita = evt;
     console.log(this.tipoReceita);
   }
-  envioReceitas(tipoReceita:string, restricaoAlimentar:string, alimento:string) {
+  envioReceitas(tipoReceita:string, restricaoAlimentar:string, alimento:string,tipo) {
     console.log(tipoReceita);
     console.log(restricaoAlimentar);
-    console.log(alimento)
-    console.log("foi!");
-  };
+    console.log(alimento);
+    if(restricaoAlimentar =='Sim'){
+      
+    }
+     let receita = this.cloudant.getAll();
+    console.log(receita);
+    
+  }
 
   isSelected(name: string): boolean {  
     if (!this.restricaoAlimentar) {   
@@ -72,6 +80,12 @@ export class ReceitasComponent implements OnInit {
     }  
      return (this.restricaoAlimentar === name);  
   }   
-
+   onChange(deviceValue){
+     let restricao = deviceValue;
+     console.log(restricao);
+     return restricao;
+   }
+  
+    
 
 }

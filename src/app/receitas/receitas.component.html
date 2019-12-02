@@ -27,7 +27,7 @@
 <div class="radio"  *ngIf="isSelected('Sim')">
   <ng-container>
       <mat-form-field class="receitas__input" >
-          <mat-select placeholder= "Selecione"> 
+          <mat-select placeholder= "Selecione"  (change)="onChange(value)"> 
             <mat-option value="vegetarianas">Vegetarianas</mat-option>
             <mat-option value="veganas">Veganas</mat-option>
             <mat-option value="lac">Sem Lactose</mat-option>

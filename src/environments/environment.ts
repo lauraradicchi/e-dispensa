@@ -4,6 +4,12 @@
 
 export const environment = {
   production: false,
+  cloudantUser:"spedwasheingerstrantooke",
+  cloudantPassword:"3a4430e91bc527edca9207dbd368785ce5619eef",
+  cloudantURL: 'https://aaa43ed6-d8b3-4d90-822b-fe66ca51ebab-bluemix.cloudant.com/',
+  cloudantDb:"receitas",
+  localCloudantDb:"e-dispensa",
+
 };
 
 /*

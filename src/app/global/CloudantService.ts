@@ -113,8 +113,7 @@ export class CloudantService {
         console.log('Cloudant provider error!', err)
       });
   }
-
-  private getDoc(_id){
+  getDoc(_id){
 
     let erof = this;
       return new Promise(function(resolve, reject) {
