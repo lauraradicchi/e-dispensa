@@ -1,10 +1,9 @@
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import{RouterModule,Router} from '@angular/router';
 import {FormControl, Validators,FormBuilder, FormGroup} from '@angular/forms';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatButtonToggleGroupMultiple } from '@angular/material';
 import { CloudantService } from '../global/CloudantService';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { CloudantModule } from '../global/CloudantModule';
+
 
 @Component({
   selector: 'app-receitas',
@@ -14,7 +13,7 @@ import { CloudantModule } from '../global/CloudantModule';
 export class ReceitasComponent implements OnInit {
   
   public system: {};
-  public docs =[];
+  public docs = require("../../assets/mock.json");
   public internal =[];
   public forms = [];
   tipoReceita: string;
@@ -28,8 +27,7 @@ export class ReceitasComponent implements OnInit {
   
  
   constructor(private dbCloudant:CloudantService ,
-    private zone: NgZone,
-    private cloudant:CloudantModule) {
+    private zone: NgZone) {
   }
   
   ngOnInit() {
@@ -66,11 +64,12 @@ export class ReceitasComponent implements OnInit {
     console.log(tipoReceita);
     console.log(restricaoAlimentar);
     console.log(alimento);
-    if(restricaoAlimentar =='Sim'){
-      
-    }
-     let receita = this.cloudant.getAll();
+   if (this.isSelected.name=="Sim"){
+
+   }
+     let receita = this.dbCloudant.getAll();
     console.log(receita);
+    this.montarReceitas(alimento);
     
   }
 
@@ -85,7 +84,14 @@ export class ReceitasComponent implements OnInit {
      console.log(restricao);
      return restricao;
    }
-  
+   montarReceitas(alimento:string):boolean {
+     let mock = require('../../assets/mock.json')
+     if(mock.receitas["alimento"]==alimento){
+       return mock;
+     }else{
+       return false;
+    }
+  }
     
 
 }

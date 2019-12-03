@@ -1,0 +1,33 @@
+ {
+    "receitas":{
+        
+            "_id": "06938c93cd7e8a6a6214992d67af501e",
+            "_rev": "5-8a89c651e20d68c3024dc05344f29aac",
+            "docId": "sardinha",
+            "alimento": "sardinha",
+            "receita": "Torta de sardinha",
+            "tipoReceita": "salgada",
+            "ingredientes": [
+              "1 colher (sopa) de azeite de oliva",
+              "2 colheres (sopa) de cebola picada",
+              "1 dente de alho picado",
+              "2 xícaras (chá) de tomate em cubos",
+              "2 latas de sardinha",
+              "1 colher (sobremesa) de salsa (ou salsinha)",
+              "5 pão francês adormecidos",
+              "3 colheres (sopa) de maionese a gosto",
+              "sal a gosto"
+            ],
+            "modoPreparo": [
+              "1-Aqueça o azeite e refogue a cebola e o alho.",
+              "2-Acrescente o tomate e mexa por 1 minuto.",
+              "2-Junte a sardinha e a salsinha picadas, corrija o sal e cozinhe por 1 minuto. Reserve.",
+              "2-Corte os pães em fatias médias.",
+              "2-Em um refratário untado, monte a torta.",
+              "3-Faça uma camada de pão.",
+              "Espalhe a maionese e cubra com o refogado de sardinha.",
+              "Repita as camadas e finalize com uma camada de sardinha.",
+              "Leve ao forno, preaquecido, por 20 minutos e sirva em seguida como prato principal."
+            ]
+        }
+}

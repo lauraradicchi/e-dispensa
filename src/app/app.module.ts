@@ -16,7 +16,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { CloudantService } from './global/CloudantService';
 import { DataTableModule } from 'angular2-datatable';
 import{ MatTableModule } from '@angular/material';
-import { CloudantModule } from './global/CloudantModule';
+import { TabelaReceitasComponent } from './tabela-receitas/tabela-receitas.component';
+
   
 
 
@@ -25,7 +26,8 @@ import { CloudantModule } from './global/CloudantModule';
   declarations: [
     AppComponent,
     ReceitasComponent,
-    HomeComponent
+    HomeComponent,
+    TabelaReceitasComponent
   ],
   imports: [
     BrowserModule,
@@ -48,13 +50,10 @@ import { CloudantModule } from './global/CloudantModule';
 
   ],
   providers: [
-    CloudantModule,
-    { provide: APP_INITIALIZER, useFactory: cloudantModuleLoader, deps: [CloudantModule], multi: true },
+    
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-export function cloudantModuleLoader(provider: CloudantModule) {
-  return () => provider.init();
-}
+
